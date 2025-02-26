@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mannual Swiper Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css">
+    <link rel="stylesheet" href="slide.css">
+</head>
+<body>
+    <div class="swiper-container swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next" aria-label="Next slide"></div>
+        <div class="swiper-button-prev" aria-label="Previous slide"></div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Optional scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,  // Enable infinite looping
+            loopAdditionalSlides: 1,  // Add extra slides for smoother looping
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,  // Allows pagination dots to be clickable
+                dynamicBullets: true,  // More dynamic and compact pagination
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',  // Optional: Add a draggable scrollbar
+                hide: true,  // Optionally hides the scrollbar when not in use
+            },
+            autoplay: {
+                delay: 2000,  // Auto-slide every 2 seconds
+                disableOnInteraction: false,  // Prevents autoplay from being disabled after interaction
+                pauseOnMouseEnter: true,  // Pause autoplay when the user hovers over the slider
+            },
+            speed: 600,  // Adjust the transition speed for slide change
+            effect: 'slide',  // Use 'slide' effect for a simple transition (or keep 'coverflow' if preferred)
+            centeredSlides: true,  // Ensures the current slide is always in the center
+            spaceBetween: 20,  // Space between slides
+            slidesPerView: 1,  // Show only one slide at a time
+            watchOverflow: true,  // Prevents excessive space when there are fewer slides than space
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,  // Show 1 slide for small screens
+                },
+                1024: {
+                    slidesPerView: 1,  // Show 1 slide for larger screens
+                },
+            },
+            keyboard: {
+                enabled: true,  // Allows keyboard navigation
+                onlyInViewport: true,  // Works only when the slider is in the viewport
+            },
+            mousewheel: {
+                invert: false,  // Optionally invert the mousewheel scroll direction
+                sensitivity: 1,  // Controls the scrolling sensitivity
+            },
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <input type="text" id="signup-name" placeholder="Full Name" required /><br />
+      <input type="email" id="signup-email" placeholder="Email" required /><br />
+      <input type="password" id="signup-password" placeholder="Password" required /><br />
+      <button type="submit">Sign Up</button>
+    </form>
+    <p id="signup-error-message" style="color: red;"></p>
+    <p>
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
+
+  <!-- Firebase and Signup Script -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCTrDlAirTgRWoa5i-EgUCMQI4JI0v-MrQ",
+      authDomain: "login-6ea2a.firebaseapp.com",
+      projectId: "login-6ea2a",
+      storageBucket: "login-6ea2a.appspot.com",
+      messagingSenderId: "114048763668",
+      appId: "1:114048763668:web:05adcb9989c446ee842401",
+      measurementId: "G-TSS44YYG3V"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Signup form submission
+    document.getElementById("signup-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById("signup-name").value.trim();
+      const email = document.getElementById("signup-email").value.trim();
+      const password = document.getElementById("signup-password").value;
+      const errorMessage = document.getElementById("signup-error-message");
+
+      // Clear previous error messages
+      errorMessage.textContent = "";
+
+      if (!fullName || !email || !password) {
+        errorMessage.textContent = "All fields are required.";
+        return;
+      }
+
+      try {
+        // Create user in Firebase Authentication
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Save user data in Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          name: fullName,
+          email: email,
+          createdAt: new Date().toISOString()
+        });
+
+        alert("Signup successful! Redirecting to login...");
+        window.location.href = "login.html";
+      } catch (error) {
+        errorMessage.textContent = error.message;
+      }
+    });
+  </script>
+</body>
+</html>

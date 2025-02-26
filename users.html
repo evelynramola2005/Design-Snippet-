@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registered Users</h2>
+    <ul id="users-list"></ul>
+
+    <!-- Place this script at the bottom -->
+    <script type="module">
+        import { getAllUsers } from "./firebase.js";
+
+        async function displayUsers() {
+            try {
+                const users = await getAllUsers();
+                console.log("Users List:", users);
+                
+                let usersList = document.getElementById("users-list");
+                usersList.innerHTML = users.map(user => `<li>${user.name} - ${user.email}</li>`).join('');
+            } catch (error) {
+                console.error("Error fetching users:", error);
+            }
+        }
+
+        displayUsers();
+    </script>
+</body>
+</html>

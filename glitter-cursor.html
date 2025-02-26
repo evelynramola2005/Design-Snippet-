@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitter Effect</title>
+    <link rel="stylesheet" href="glitter-cursor.css">
+</head>
+<body>
+    <div class="glitter-container"></div>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const glitterContainer = document.querySelector('.glitter-container');
+            const numParticles = 10; // Number of particles to create per cursor movement
+        
+            for (let i = 0; i < numParticles; i++) {
+                const glitter = document.createElement('div');
+                glitter.classList.add('glitter');
+        
+                // Randomize position slightly around the cursor
+                const offsetX = (Math.random() - 0.5) * 20; // Spread horizontally
+                const offsetY = (Math.random() - 0.5) * 20; // Spread vertically
+                glitter.style.left = `${e.pageX + offsetX}px`;
+                glitter.style.top = `${e.pageY + offsetY}px`;
+        
+                // Randomize size for variation
+                const size = Math.random() * 2 + 1; // Random size between 1px and 3px
+                glitter.style.width = `${size}px`;
+                glitter.style.height = `${size}px`;
+        
+                // Randomize animation duration for a more dynamic effect
+                const duration = Math.random() * 1 + 0.5; // Random duration between 0.5s and 1.5s
+                glitter.style.animationDuration = `${duration}s`;
+        
+                // Append the glitter to the container
+                glitterContainer.appendChild(glitter);
+        
+                // Remove the glitter after the animation ends
+                setTimeout(() => {
+                    glitter.remove();
+                }, duration * 1000); // Match this duration with the CSS animation duration
+            }
+        });
+    </script>
+</body>
+</html>

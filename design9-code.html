@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design9.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Enhanced Rainbow Animation&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;rainbow.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;rainbow-container&quot;&gt;
+        &lt;svg class=&quot;rainbow&quot; viewBox=&quot;0 0 200 200&quot;&gt;
+            &lt;path class=&quot;arc red&quot; d=&quot;M 10,150 A 90,90 0 0,1 190,150&quot; /&gt;
+            &lt;path class=&quot;arc orange&quot; d=&quot;M 20,150 A 80,80 0 0,1 180,150&quot; /&gt;
+            &lt;path class=&quot;arc yellow&quot; d=&quot;M 30,150 A 70,70 0 0,1 170,150&quot; /&gt;
+            &lt;path class=&quot;arc green&quot; d=&quot;M 40,150 A 60,60 0 0,1 160,150&quot; /&gt;
+            &lt;path class=&quot;arc blue&quot; d=&quot;M 50,150 A 50,50 0 0,1 150,150&quot; /&gt;
+            &lt;path class=&quot;arc indigo&quot; d=&quot;M 60,150 A 40,40 0 0,1 140,150&quot; /&gt;
+            &lt;path class=&quot;arc violet&quot; d=&quot;M 70,150 A 30,30 0 0,1 130,150&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+            function createDroplet() {
+                const droplet = document.createElement(&quot;div&quot;);
+                droplet.classList.add(&quot;droplet&quot;);
+        
+                let size = Math.random() * 8 + 5; // Random size between 5px - 13px
+                droplet.style.width = `${size}px`;
+                droplet.style.height = `${size}px`;
+        
+                // Assign random rainbow colors
+                const colors = [&quot;#ff0000&quot;, &quot;#ff8c00&quot;, &quot;#ffd700&quot;, &quot;#008000&quot;, &quot;#0000ff&quot;, &quot;#4b0082&quot;, &quot;#9400d3&quot;];
+                let randomColor = colors[Math.floor(Math.random() * colors.length)];
+                droplet.style.background = randomColor;
+                droplet.style.boxShadow = `0 0 10px ${randomColor}`;
+        
+                // Position droplets along the rainbow
+                const rainbow = document.querySelector(&quot;.rainbow&quot;);
+                const rect = rainbow.getBoundingClientRect(); // Get rainbow position
+                const rainbowLeft = rect.left; // Left boundary
+                const rainbowTop = rect.top; // Top boundary
+                const rainbowWidth = rect.width; // Width of the rainbow
+        
+                let randomX = rainbowLeft + Math.random() * rainbowWidth; // Random point along the rainbow base
+                droplet.style.left = `${randomX}px`;
+                droplet.style.top = `${rainbowTop + rect.height / 2}px`; // Start falling from the rainbow
+        
+                // Append to body
+                document.body.appendChild(droplet);
+        
+                // Remove after animation
+                setTimeout(() => {
+                    droplet.remove();
+                }, 4000);
+            }
+        
+            // Generate droplets at an interval
+            setInterval(createDroplet, 400);
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        /* General body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a18cd1, #8ec5fc);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Rainbow container to center the rainbow */
+.rainbow-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Rainbow Styling */
+.rainbow {
+    width: 50vw;
+    height: auto;
+}
+
+/* Arc styling */
+.arc {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: draw 2s ease-out forwards;
+}
+
+/* Stroke animation */
+@keyframes draw {
+    from {
+        stroke-dashoffset: 300;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Colors */
+.red { stroke: #ff0000; }
+.orange { stroke: #ff8c00; animation-delay: 0.2s; }
+.yellow { stroke: #ffd700; animation-delay: 0.4s; }
+.green { stroke: #008000; animation-delay: 0.6s; }
+.blue { stroke: #0000ff; animation-delay: 0.8s; }
+.indigo { stroke: #4b0082; animation-delay: 1s; }
+.violet { stroke: #9400d3; animation-delay: 1.2s; }
+
+/* Floating Droplets */
+.droplet {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 4s ease-out forwards;
+}
+
+/* Falling animation */
+@keyframes fall {
+    0% { transform: translateY(0px) scale(1); opacity: 1; }
+    100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+}
+
+        
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>

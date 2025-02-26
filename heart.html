@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Rain Animation</title>
+    <link rel="stylesheet" href="heart.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heart">
+            <div class="heart-inner"></div>
+            <div class="heart-solid"></div> <!-- New solid pink heart -->
+        </div>
+    </div>
+    <script>
+        function rain() {
+            let heart = document.querySelector('.heart');
+            let e = document.createElement('div');
+            e.classList.add('drop');
+            heart.appendChild(e);
+
+            let left = Math.floor(Math.random() * 300);
+            let duration = Math.random() * 0.5;
+
+            e.style.left = left + 'px';
+            e.style.animationDuration = 1 + duration + 's';
+
+            setTimeout(function () {
+                heart.removeChild(e);
+            }, 5000);
+        }
+
+        setInterval(function () {
+            rain();
+        }, 50);
+    </script>
+</body>
+</html>

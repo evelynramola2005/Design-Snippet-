@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: #000000;
+}
+
+.container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cloud {
+    position: relative;
+    top: 50px;
+    width: 320px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 50px;
+    z-index: 100;
+    filter: drop-shadow(0 0 25px #ffffff);
+}
+
+.cloud::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 40px;
+    width: 110px;
+    height: 110px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 90px 0 0 30px #ffffff;
+}
+
+/* Falling letters */
+.text {
+    position: absolute;
+    height: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 30px #ffffff;
+}

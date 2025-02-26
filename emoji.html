@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Expression Changer</title>
+    <link rel="stylesheet" href="emoji.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Emoji Face -->
+        <div id="emoji">😁</div>
+
+        <!-- Buttons to Change Expressions -->
+        <div class="buttons">
+            <button onclick="changeExpression('happy')">😁 Happy</button>
+            <button onclick="changeExpression('angry')">😠 Angry</button>
+            <button onclick="changeExpression('sad')">😢 Sad</button>
+            <button onclick="changeExpression('Love')">😍 Love</button>
+            <button onclick="changeExpression('evil')">😈 Evil</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to change emoji expression
+function changeExpression(mood) {
+    let emoji = document.getElementById("emoji");
+
+    if (mood === "happy") {
+        emoji.innerHTML = "😁"; // Happy face
+    } else if (mood === "angry") {
+        emoji.innerHTML = "😠"; // Angry face
+    } else if (mood === "sad") {
+        emoji.innerHTML = "😢"; // Sad face
+    }
+    else if (mood === "Love") {
+        emoji.innerHTML = "😍"; // Sad face
+    }
+    else if (mood === "evil") {
+        emoji.innerHTML = "😈"; // Sad face
+    }
+
+    // Add a slight bounce effect
+    emoji.style.transform = "scale(1.2)";
+    setTimeout(() => emoji.style.transform = "scale(1)", 200);
+}
+
+    </script>
+
+</body>
+</html>

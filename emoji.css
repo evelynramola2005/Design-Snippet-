@@ -1,0 +1,49 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #3f002c, #1A1A6D); /* Aesthetic Blue */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Emoji */
+#emoji {
+    font-size: 80px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    background: linear-gradient(135deg, #0059ff, #f50930); /* Gradient Blue */
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #f509e1, #00C9FF); /* Reverse Gradient */
+}

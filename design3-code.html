@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design3.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mannual Swiper Slider&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css"&gt;
+    &lt;link rel="stylesheet" href="slide.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="swiper-container swiper"&gt;
+        &lt;div class="swiper-wrapper"&gt;
+            &lt;div class="swiper-slide"&gt;Slide 1&lt;/div&gt;
+            &lt;div class="swiper-slide"&gt;Slide 2&lt;/div&gt;
+            &lt;div class="swiper-slide"&gt;Slide 3&lt;/div&gt;
+            &lt;div class="swiper-slide"&gt;Slide 4&lt;/div&gt;
+            &lt;div class="swiper-slide"&gt;Slide 5&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Navigation buttons --&gt;
+        &lt;div class="swiper-button-next" aria-label="Next slide"&gt;&lt;/div&gt;
+        &lt;div class="swiper-button-prev" aria-label="Previous slide"&gt;&lt;/div&gt;
+        &lt;!-- Pagination --&gt;
+        &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+        &lt;!-- Optional scrollbar --&gt;
+        &lt;div class="swiper-scrollbar"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const swiper = new Swiper('.swiper', {
+            loop: true,  &lt;!-- Enable infinite looping --&gt;
+            loopAdditionalSlides: 1,  &lt;!-- Add extra slides for smoother looping --&gt;
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,  &lt;!-- Allows pagination dots to be clickable --&gt;
+                dynamicBullets: true,  &lt;!-- More dynamic and compact pagination --&gt;
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',  &lt;!-- Optional: Add a draggable scrollbar --&gt;
+                hide: true,  &lt;!-- Optionally hides the scrollbar when not in use --&gt;
+            },
+            autoplay: {
+                delay: 2000,  &lt;!-- Auto-slide every 2 seconds --&gt;
+                disableOnInteraction: false,  &lt;!-- Prevents autoplay from being disabled after interaction --&gt;
+                pauseOnMouseEnter: true,  &lt;!-- Pause autoplay when the user hovers over the slider --&gt;
+            },
+            speed: 600,  &lt;!-- Adjust the transition speed for slide change --&gt;
+            effect: 'slide',  &lt;!-- Use 'slide' effect for a simple transition (or keep 'coverflow' if preferred) --&gt;
+            centeredSlides: true,  &lt;!-- Ensures the current slide is always in the center --&gt;
+            spaceBetween: 20,  &lt;!-- Space between slides --&gt;
+            slidesPerView: 1,  &lt;!-- Show only one slide at a time --&gt;
+            watchOverflow: true,  &lt;!-- Prevents excessive space when there are fewer slides than space --&gt;
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,  &lt;!-- Show 1 slide for small screens --&gt;
+                },
+                1024: {
+                    slidesPerView: 1,  &lt;!-- Show 1 slide for larger screens --&gt;
+                },
+            },
+            keyboard: {
+                enabled: true,  &lt;!-- Allows keyboard navigation --&gt;
+                onlyInViewport: true,  &lt;!-- Works only when the slider is in the viewport --&gt;
+            },
+            mousewheel: {
+                invert: false,  &lt;!-- Optionally invert the mousewheel scroll direction --&gt;
+                sensitivity: 1,  &lt;!-- Controls the scrolling sensitivity --&gt;
+            },
+        });
+        
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #420b49;
+            font-family: Arial, sans-serif;
+        }
+        
+        .swiper {
+            width: 90%;
+            max-width: 500px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: #c362ff;
+            color: white;
+            font-size: 24px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .swiper-pagination {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .swiper-pagination-bullet {
+            cursor: pointer;
+        }
+        
+        .swiper-slide:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        
+        .swiper-slide-prev, .swiper-slide-next {
+            transform: scale(0.9);
+            opacity: 0.7;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 50%;
+            color: #3498db;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        .swiper-pagination-bullet-active {
+            background-color: rgba(255, 255, 255, 1);
+        }
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design5.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+        &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Blinking Stars&lt;/title&gt;
+    &lt;link rel="stylesheet" href="stars.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script&gt;
+        function createStar() {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            document.body.appendChild(star);
+            
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            const delay = Math.random() * 3; 
+            
+            star.style.left = `${x}px`;
+            star.style.top = `${y}px`;
+            star.style.animationDelay = `${delay}s`;
+        }
+        
+        for (let i = 0; i < 200; i++) {
+            createStar();
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        body {
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: blink 3s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design7.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Glitter Effect&lt;/title&gt;
+            &lt;link rel="stylesheet" href="glitter-cursor.css"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class="glitter-container"&gt;&lt;/div&gt;
+            &lt;script&gt;
+                document.addEventListener('mousemove', function(e) {
+                    const glitterContainer = document.querySelector('.glitter-container');
+                    const numParticles = 10; // Number of particles to create per cursor movement
+                
+                    for (let i = 0; i &lt; numParticles; i++) {
+                        const glitter = document.createElement('div');
+                        glitter.classList.add('glitter');
+                
+                        // Randomize position slightly around the cursor
+                        const offsetX = (Math.random() - 0.5) * 20; // Spread horizontally
+                        const offsetY = (Math.random() - 0.5) * 20; // Spread vertically
+                        glitter.style.left = `${e.pageX + offsetX}px`;
+                        glitter.style.top = `${e.pageY + offsetY}px`;
+                
+                        // Randomize size for variation
+                        const size = Math.random() * 2 + 1; // Random size between 1px and 3px
+                        glitter.style.width = `${size}px`;
+                        glitter.style.height = `${size}px`;
+                
+                        // Randomize animation duration for a more dynamic effect
+                        const duration = Math.random() * 1 + 0.5; // Random duration between 0.5s and 1.5s
+                        glitter.style.animationDuration = `${duration}s`;
+                
+                        // Append the glitter to the container
+                        glitterContainer.appendChild(glitter);
+                
+                        // Remove the glitter after the animation ends
+                        setTimeout(() => {
+                            glitter.remove();
+                        }, duration * 1000); // Match this duration with the CSS animation duration
+                    }
+                });
+            &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+        
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background-color: #0a192f; /* Dark blue background */
+        }
+        
+        .glitter-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .glitter {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #64ffda; /* Light blue glitter color */
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: glitter 1.5s infinite alternate;
+        }
+        
+        @keyframes glitter {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }   
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>

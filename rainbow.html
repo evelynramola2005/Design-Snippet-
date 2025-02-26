@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Rainbow Animation</title>
+    <link rel="stylesheet" href="rainbow.css">
+</head>
+<body>
+    <div class="rainbow-container">
+        <svg class="rainbow" viewBox="0 0 200 200">
+            <path class="arc red" d="M 10,150 A 90,90 0 0,1 190,150" />
+            <path class="arc orange" d="M 20,150 A 80,80 0 0,1 180,150" />
+            <path class="arc yellow" d="M 30,150 A 70,70 0 0,1 170,150" />
+            <path class="arc green" d="M 40,150 A 60,60 0 0,1 160,150" />
+            <path class="arc blue" d="M 50,150 A 50,50 0 0,1 150,150" />
+            <path class="arc indigo" d="M 60,150 A 40,40 0 0,1 140,150" />
+            <path class="arc violet" d="M 70,150 A 30,30 0 0,1 130,150" />
+        </svg>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function createDroplet() {
+                const droplet = document.createElement("div");
+                droplet.classList.add("droplet");
+        
+                let size = Math.random() * 8 + 5; // Random size between 5px - 13px
+                droplet.style.width = `${size}px`;
+                droplet.style.height = `${size}px`;
+        
+                // Assign random rainbow colors
+                const colors = ["#ff0000", "#ff8c00", "#ffd700", "#008000", "#0000ff", "#4b0082", "#9400d3"];
+                let randomColor = colors[Math.floor(Math.random() * colors.length)];
+                droplet.style.background = randomColor;
+                droplet.style.boxShadow = `0 0 10px ${randomColor}`;
+        
+                // Position droplets along the rainbow
+                const rainbow = document.querySelector(".rainbow");
+                const rect = rainbow.getBoundingClientRect(); // Get rainbow position
+                const rainbowLeft = rect.left; // Left boundary
+                const rainbowTop = rect.top; // Top boundary
+                const rainbowWidth = rect.width; // Width of the rainbow
+        
+                let randomX = rainbowLeft + Math.random() * rainbowWidth; // Random point along the rainbow base
+                droplet.style.left = `${randomX}px`;
+                droplet.style.top = `${rainbowTop + rect.height / 2}px`; // Start falling from the rainbow
+        
+                // Append to body
+                document.body.appendChild(droplet);
+        
+                // Remove after animation
+                setTimeout(() => {
+                    droplet.remove();
+                }, 4000);
+            }
+        
+            // Generate droplets at an interval
+            setInterval(createDroplet, 400);
+        });
+    </script>
+</body>
+</html>

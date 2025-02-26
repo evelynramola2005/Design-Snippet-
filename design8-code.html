@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design8.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Emoji Expression Changer&lt;/title&gt;
+    &lt;link rel="stylesheet" href="emoji.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="container"&gt;
+        &lt;!-- Emoji Face --&gt;
+        &lt;div id="emoji"&gt;😁&lt;/div&gt;
+
+        &lt;!-- Buttons to Change Expressions --&gt;
+        &lt;div class="buttons"&gt;
+            &lt;button onclick="changeExpression('happy')"&gt;😁 Happy&lt;/button&gt;
+            &lt;button onclick="changeExpression('angry')"&gt;😠 Angry&lt;/button&gt;
+            &lt;button onclick="changeExpression('sad')"&gt;😢 Sad&lt;/button&gt;
+            &lt;button onclick="changeExpression('Love')"&gt;😍 Love&lt;/button&gt;
+            &lt;button onclick="changeExpression('evil')"&gt;😈 Evil&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Function to change emoji expression
+        function changeExpression(mood) {
+            let emoji = document.getElementById("emoji");
+
+            if (mood === "happy") {
+                emoji.innerHTML = "😁"; // Happy face
+            } else if (mood === "angry") {
+                emoji.innerHTML = "😠"; // Angry face
+            } else if (mood === "sad") {
+                emoji.innerHTML = "😢"; // Sad face
+            } else if (mood === "Love") {
+                emoji.innerHTML = "😍"; // Love face
+            } else if (mood === "evil") {
+                emoji.innerHTML = "😈"; // Evil face
+            }
+
+            // Add a slight bounce effect
+            emoji.style.transform = "scale(1.2)";
+            setTimeout(() => emoji.style.transform = "scale(1)", 200);
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3f002c, #1A1A6D); /* Aesthetic Blue */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Emoji */
+        #emoji {
+            font-size: 80px;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #0059ff, #f50930); /* Gradient Blue */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s, background 0.3s;
+        }
+        
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #f509e1, #00C9FF); /* Reverse Gradient */
+        }
+        
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container, .code-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+/* Glassmorphism Box */
+.glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid  rgba(255, 255, 255, 0.2);
+    padding: 13x; /* Keeps 20px padding inside the box */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevents any overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Iframe Styling */
+.glass-box iframe {
+    width: calc(100% - 40px); /* Ensures it stays within the 20px padding on both sides */
+    height: calc(625px - 10px); /* Adjusts height to accommodate padding */
+    border-radius: 20px;
+    border: none;
+} 
+.get-code-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 50px; /* Reduced padding */
+    background: linear-gradient(45deg, #7d7777, #333333);
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Slightly smaller border-radius */
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: fit-content; /* Ensures the button fits its content */
+  }
+  
+  .get-code-btn:hover {
+    transform: scale(1.05);
+  }
+
+/* HTML Code Box Styles */
+.html-code-box {
+    display: block; /* Ensures it behaves as a block element */
+    max-width: 600px; /* Adjust as needed */
+    min-width: 300px; /* Minimum width for smaller screens */
+    background: rgba(85, 77, 72, 0.823); 
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
+    color: rgb(190, 190, 190);
+    margin: 20px auto; /* Adds space around the box and centers it */
+    max-height: 600px; /* Sets max height to enable scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* CSS Code Box Styles */
+.css-code-box {
+    display: block; /* Ensures it behaves as a block element */
+    max-width: 600px; /* Adjust as needed */
+    min-width: 300px; /* Minimum width for smaller screens */
+    background: rgba(85, 77, 72, 0.823); 
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgb(255, 247, 242);
+    color: rgb(190, 190, 190);
+    margin: 20px auto; /* Adds space around the box and centers it */
+    max-height: 600px; /* Sets max height to enable scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+  
+  /* Common Styles for Code Headers */
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Copy Button Styles */
+  .copy-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .copy-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Copy Button Styles */
+  .copy-btn {
+    background: rgb(47, 46, 46);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .copy-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+.copy-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background: lightgray;
+}
+
+  
+  .copy-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .copy-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+.copy-btn {
+  background: rgb(51, 2, 70);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+  
+  /* Code Page Styles */
+  .code-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .code-box {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(46, 3, 67, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgb(119, 22, 163);
+  }
+  
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .copy-btn {
+    background: #393434;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .copy-btn:hover {
+    background: #000000;
+  }
+  
+  pre {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+  
+  code {
+    color: rgb(255, 255, 255);
+  }
+  
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(132, 122, 122, 0.753);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .code-container {
+      flex-direction: column;
+    }
+  
+    iframe {
+      height: 300px;
+    }
+  }

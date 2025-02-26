@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design4.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Webpage&lt;/title&gt;
+  &lt;link rel="stylesheet" href="design4.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container"&gt;
+    &lt;!-- Glassmorphism Box for iframe --&gt;
+    &lt;div class="glass-box"&gt;
+      &lt;iframe src="candle.html" frameborder="0"&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;!-- Get Code Button --&gt;
+    &lt;a href="design4-code.html" class="get-code-btn"&gt;Get Code&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:  #000000;
+}
+
+.candle {
+    position: relative;
+    width: 70px;
+    height: 250px;
+}
+
+/* Candle Flame */
+.flame {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 70px;
+    background: linear-gradient(to bottom, #ffd700, #ff4500, #8b0000);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 0.1s infinite alternate;
+    box-shadow: 0 0 20px #ff4500, 0 0 40px #ff4500, 0 0 60px #ff4500;
+}
+
+/* Flame Flicker Animation */
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1, 1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1.1, 0.9);
+    }
+}
+
+/* Candle Wick */
+.wick {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 20px;
+    background-color: #333;
+}
+
+/* Candle Wax */
+.wax {
+    position: absolute;
+    top: 20px;
+    width: 70px;
+    height: 250px;
+    background: linear-gradient(to bottom, #fff0e0, #ffd8a0);
+    border-radius: 10px 10px 0 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Candle Base */
+.base {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    height: 20px;
+    background: #333;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Optional: Add a glow effect around the flame */
+.flame::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.3), transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+}
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Display</title>
+  <link rel="stylesheet" href="design5.css">
+</head>
+<body>
+    <!-- HTML Code Box -->
+    <div class="html-code-box">
+      <div class="code-header">
+        <h3>HTML Code</h3>
+        <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+      </div>
+      <pre id="html-code"><code class="language-html">
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Cloud Rain Animation&lt;/title&gt;
+            &lt;link rel="stylesheet" href="cloud.css"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class="container"&gt;
+                &lt;div class="cloud"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        
+            &lt;script&gt;
+                function randomText() {
+                    let text = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&";
+                    return text[Math.floor(Math.random() * text.length)];
+                }
+        
+                function rain() {
+                    let cloud = document.querySelector('.cloud');
+                    let e = document.createElement('div');
+                    let left = Math.floor(Math.random() * 320);
+                    e.classList.add("text");
+                    e.innerText = randomText();
+                    e.style.position = "absolute"; 
+                    e.style.left = left + 'px';
+                    e.style.fontSize = (0.5 + Math.random()) + 'em';
+                    e.style.top = "0px"; 
+                    e.style.color = "white";
+        
+                    cloud.appendChild(e);
+        
+                    let fallInterval = setInterval(function () {
+                        let topPosition = parseInt(e.style.top) || 0;
+                        if (topPosition &lt; 350) { // Stops at the surface
+                            e.style.top = topPosition + 5 + 'px';
+                        } else {
+                            clearInterval(fallInterval);
+                            cloud.removeChild(e); // Removes the letter when it falls
+                        }
+                    }, 30); // Increased speed for heavy rain
+                }
+        
+                setInterval(rain, 100); // Increased frequency for heavier rain
+            &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+        
+      </code></pre>
+    </div>
+  
+    <!-- CSS Code Box -->
+    <div class="css-code-box">
+      <div class="code-header">
+        <h3>CSS Code</h3>
+        <button class="copy-btn" onclick="copyCode('css-code')">Copy</button>
+      </div>
+      <pre id="css-code"><code class="language-css">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: #000000;
+        }
+        
+        .container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .cloud {
+            position: relative;
+            top: 50px;
+            width: 320px;
+            height: 100px;
+            background: #ffffff;
+            border-radius: 50px;
+            z-index: 100;
+            filter: drop-shadow(0 0 25px #ffffff);
+        }
+        
+        .cloud::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 40px;
+            width: 110px;
+            height: 110px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 90px 0 0 30px #ffffff;
+        }
+        
+        /* Falling letters */
+        .text {
+            position: absolute;
+            height: 20px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 30px #ffffff;
+        }
+        
+      </code></pre>
+    </div>
+  
+    <script src="design-script.js"></script>
+  </body>
+</html>
